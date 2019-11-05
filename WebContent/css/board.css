@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+
+h1, h2, h3 {
+	color: #13B943;
+}
+table {
+	/* border-collapse: collapse; */
+	border-top: 2px solid green;
+	border-bottom: 2px solid green;
+}
+tr:nth-child(even) {
+	background-color: #E2F5D9;
+}
+tr:hover {
+	background: #88F157;
+	cursor: pointer;
+}
+th {
+	color : white;
+	background: #62B47A;
+}
+
+.a1 {
+	text-decoration: none;
+	
+}
+button{
+	background: #62B47A;
+	border: 1px solid #13762F;
+	padding: 7px 9px;
+	border-radius: 5px;
+	color: white;
+	transition: 0.3s;
+}
+button:hover{
+	background: #30994E;
+	color: black;
+}
