@@ -1,6 +1,7 @@
 package co.micol.command;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,20 +15,22 @@ public class BoardView implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			ArrayList<BoardDto> list = new ArrayList<>();
 			BoardDao dao = new BoardDao();
-			BoardDto dto = new BoardDto();
+			//BoardDto dto = new BoardDto();
 			
 			int id = Integer.parseInt(request.getParameter("id"));
-			dto = dao.select(id);
+			list = dao.select(id);
 			
-			request.setAttribute("dto", dto);
+			int length = list.size();
+			
+			request.setAttribute("list", list);
+			request.setAttribute("length", length); //리스트 사이즈
+			
 			String path = "view/boardview.jsp";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 			dispatcher.forward(request, response);
 			
-			
-			
-
 	}
 
 }

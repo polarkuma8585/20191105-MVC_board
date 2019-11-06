@@ -10,8 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.micol.command.BoardDelete;
 import co.micol.command.BoardEdit;
+import co.micol.command.BoardEditOk;
 import co.micol.command.BoardList;
+import co.micol.command.BoardNameSearch;
+import co.micol.command.BoardReply;
+import co.micol.command.BoardReplyOk;
 import co.micol.command.BoardView;
 import co.micol.command.BoardWrite;
 import co.micol.command.BoardWriteOk;
@@ -33,10 +38,15 @@ public class FrontController extends HttpServlet {
 		list = new HashMap<String, Command>();
 		list.put("/index.do", new MainCommand()); // url 에서 index.do 로 접속하면 MainCommand를 실행
 		list.put("/boardlist.do", new BoardList());
+		list.put("/boardNameSearch.do", new BoardNameSearch()); // 리스트 이름 검색
 		list.put("/boardEdit.do", new BoardEdit()); // 글 수정
 		list.put("/boardWrite.do", new BoardWrite()); // board를 쓰기위한 form 으로 보내는 주소
 		list.put("/boardWriteOk.do", new BoardWriteOk());
-		list.put("/boardView.do", new BoardView());
+		list.put("/boardView.do", new BoardView());  // 글 세부사항 페이지
+		list.put("/boardEditOk.do", new BoardEditOk()); // 글 수정 후 저장
+		list.put("/boardDelete.do", new BoardDelete()); // 글 삭제
+		list.put("/boardReply.do", new BoardReply()); // 댓글 달기
+		list.put("/boardReplyOk.do", new BoardReplyOk()); // 댓글 작성
 		// list.put("/boardinsert.do", new BoardSave());
 	}
 

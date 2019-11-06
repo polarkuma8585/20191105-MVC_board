@@ -88,6 +88,12 @@ public class BoardDto {
 	public void setIndent(int indent) {
 		this.indent = indent;
 	}
+
+	@Override
+	public String toString() {
+		return "BoardDto [id=" + id + ", name=" + name + ", title=" + title + ", contents=" + contents + ", wDate="
+				+ wDate + ", hit=" + hit + ", group=" + group + ", step=" + step + ", indent=" + indent + "]";
+	}
 	
 	
 	

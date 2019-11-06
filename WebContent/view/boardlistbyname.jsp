@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,7 @@
 <script>
 function transName(n){
 	frm.action="boardNameSearch.do";
-	frm.name.value=n;
+	frm.id.value=n;
 	frm.submit();
 }
 
@@ -30,7 +30,6 @@ function transName(n){
 		<!-- <form id="frm" name="frm" action="boardView.do" method="post"> -->
 		<form id="frm" name="frm" action="" method="post">
 				<input type="hidden" id="id" name="id">
-				<input type="hidden" id="name" name="name">
 			<table cellpadding="5px">
 				<tr align="center" height="30" >
 					<th width="50">순번</th>
@@ -40,9 +39,9 @@ function transName(n){
 					<th width="50">조회수</th>
 				</tr>
 				<c:forEach var="dto" items="${list }">
-					<tr class="tr" align="center">
+					<tr class="tr" align="center">						
 						<td class="td" width="50">${dto.id }</td>
-						<td class="td" width="70" onclick="transName('${dto.name }')">${dto.name }</td>
+						<td class="td" width="70" id="name" name="name" onclick="transName(${dto.name})">${dto.name }</td>
 						<td class="td" width="200" onclick="transData(${dto.id})">${dto.title }</td>
 						<td class="td" width="100">${dto.wDate }</td>
 						<td class="td" width="50">${dto.hit }</td>
@@ -54,7 +53,9 @@ function transName(n){
 		<div>
 			<br />
 			<button type="button" onclick="location.href='boardWrite.do'">글쓰기</button>&nbsp;&nbsp; 
+			<button type="button" onclick="location.href='boardlist.do'">전체목록보기</button>&nbsp;&nbsp;
 			<button type="button" onclick="location.href='index.do'">홈으로</button>
+			
 		</div>
 	</div>
 </body>
